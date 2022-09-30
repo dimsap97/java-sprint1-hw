@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         StepTracker tracker = new StepTracker();
 
+
         while (true) /*Реализуем бесконечный цикл для удобного меню*/ {
             printMenu();
             Scanner scanner = new Scanner(System.in);
@@ -18,6 +19,7 @@ public class Main {
                    System.out.println("За какой месяц вы желаете просмотреть активность?");
                    int month = scanner.nextInt();
                    tracker.printStatsForMonth(month);
+
         } else if (command == 4) {
                 rememberSteps(scanner, tracker);
             } else if (command == 1) {

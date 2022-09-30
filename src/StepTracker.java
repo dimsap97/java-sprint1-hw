@@ -26,6 +26,7 @@ public class StepTracker {
         System.out.println("Вы прошли " + steps[month - 1][day - 1] + " шагов");
     }
     void printStatsForMonth(int month) {
+        Converter converter = new Converter();
         int max = 0;
       for (int i = 0; i < 30; i++) {
           System.out.println((i + 1) + " день: " + steps[month - 1][i] + ",");
@@ -56,6 +57,7 @@ public class StepTracker {
                     }
 
         System.out.println("Лучшая серия: " + maxScore + " дней подряд.");
+        converter.convert(sum);
     }
 
         }
