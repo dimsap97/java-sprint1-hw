@@ -44,7 +44,7 @@ public class StepTracker {
       int maxScore = 0;
         for (int i = 0; i < 30; i++) {
 
-                if (steps[month][i] >= theStartGoal) {
+                if (steps[month - 1][i] >= theStartGoal) {
                     score1 = score1 + 1;
                     if (score1 > maxScore) {
                         maxScore = score1;
