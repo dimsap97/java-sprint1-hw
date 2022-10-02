@@ -42,15 +42,16 @@ public class Main {
      System.out.println("В случае, если календарь вам надоест, достаточно ввести 0 и выйти из программы");
  }
  public static void printResultsForDay(Scanner scanner, StepTracker tracker) {
-     System.out.println("Укажите месяц. Для выхода введите 0.");
-     int month = scanner.nextInt();
+
     while(true) {
-     if (month < 0) {
-         System.out.println("Такого месяца не существует!");
+        System.out.println("Укажите месяц. Для выхода введите 0.");
+        int month = scanner.nextInt();
+     if (month == 0) {
+         break;
      } else if (month > 12) {
          System.out.println("Такого месяца не существует!");
-     } else if (month == 0) {
-         break;
+     } else if(month < 0) {
+         System.out.println("Такого месяца не существует!");
      } else {
          while (true) {
              System.out.println("За какой день вы хотите увидеть свою активность? Для выхода введите 0.");
@@ -62,8 +63,9 @@ public class Main {
              } else if (day < 0) {
                  System.out.println("Такого дня не существует!");
              } else {
-                 tracker.printStatsForDay(day, month);
+                 System.out.println("Вы прошли " + tracker.printStatsForDay(month, day) + " шагов");
              }
+
          }
      }
  }
@@ -86,14 +88,19 @@ public class Main {
              } else if (month > 12) {
                  System.out.println("Номер месяца не может выпадать из отрезка 1-12 :-(");
              } else {
-                 System.out.println("За какой день вы желаете изменить активность? Для выхода из меню введите 0.");
-                 int day = scanner.nextInt();
-                 if (day < 0) {
-                     System.out.println("Значение дня не может быть отрицательным!");
-                 } else if (day > 30) {
-                     System.out.println("В нашем юном приложении в месяце не более 30 дней :-(");
-                 } else {
-                     tracker.writeDownSteps(month, day);
+                 while (true) {
+                     System.out.println("За какой день вы желаете изменить активность? Для выхода из меню введите 0.");
+                     int day = scanner.nextInt();
+                     if (day == 0) {
+                         break;
+                     }
+                     else if (day < 0) {
+                         System.out.println("Значение дня не может быть отрицательным!");
+                     } else if (day > 30) {
+                         System.out.println("В нашем юном приложении в месяце не более 30 дней :-(");
+                     } else {
+                         tracker.writeDownSteps(month, day);
+                     }
                  }
              }
 
